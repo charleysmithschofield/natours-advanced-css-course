@@ -56,6 +56,8 @@ body { /* put font family info in body to apply to full web page */
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
+
+  backface-visibility: hidden; /* stops text animation from shaking */
 }
 
 .heading-primary-main {
@@ -64,6 +66,17 @@ body { /* put font family info in body to apply to full web page */
   font-weight: 400;
   letter-spacing: 35px;
   
+  animation-name: moveInLeft; /* define animation name, see @keyframes for animation properties */
+  animation-duration: 1s; /* define the duration of the animation */
+  animation-timing-function: ease-out;  /* animation starts faster then slows down */
+  
+  /* 
+  Other Helpful Animation Properties:
+    animation-iteration-count: 3;  --> this makes the animation happen multi times
+    animation-dealy: 3s;           --> delays the animation start
+
+    helpful reference: https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function 
+  */
 }
 
 .heading-primary-sub {
@@ -71,5 +84,44 @@ body { /* put font family info in body to apply to full web page */
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.4px;
+
+  animation-name: moveInRight;
+  animation: moveInRight 1s ease-out; /* animation properties in one line for conciseness */
+}
+
+
+/* Text Animation for "OUTDOORS" Header */
+@keyframes moveInLeft { /* keyframes is used for CSS animations */
+  0% { /* beginning of the animation: moves header text in from the right */
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+    transform: translateX(10px); /* moves header text in from the left a little */
+  }
+
+  100% { /* end of header text animation */ 
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+
+/* Text Animation for: "IS WHERE LIFE HAPPENS" Header */
+@keyframes moveInRight { /* keyframes is used for CSS animations */
+  0% { /* beginning of the animation: moves header text in from the right */
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-10px); /* moves header text in from the left a little */
+  }
+
+  100% { /* end of animation */
+    opacity: 1;
+    transform: translate(0);
+  }
 }
 
