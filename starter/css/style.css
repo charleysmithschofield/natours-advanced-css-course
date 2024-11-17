@@ -51,6 +51,7 @@ body { /* put font family info in body to apply to full web page */
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%); /* shifts text box into exact centre */
+  text-align: center;
 }
 
 .heading-primary {
@@ -58,6 +59,7 @@ body { /* put font family info in body to apply to full web page */
   text-transform: uppercase;
 
   backface-visibility: hidden; /* stops text animation from shaking */
+  margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -125,3 +127,28 @@ body { /* put font family info in body to apply to full web page */
   }
 }
 
+
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px; /* rounds edges of button */
+  transition: all .2s; /* allows transform properties below */
+}
+
+.btn:hover {
+  transform: translateY(-3px); /* moves button up slightly when hovered on */
+  box-shadow: 0 10px 20px rgba(0,0,0,.2); /* shadow in x-direction, y-direction, blur-value, & color */
+}
+
+.btn:active {
+  transform: translateY(-1px); /* moves button down slightly when pressed */
+  box-shadow: 0 5px 10px rgba(0,0,0,.2); /* less button shadow when pressed */
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
