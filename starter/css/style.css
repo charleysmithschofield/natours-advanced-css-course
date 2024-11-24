@@ -13,13 +13,17 @@ Dark green: #28b485
   box-sizing: border-box;
 }
 
+html {
+  font-size: 10px; /* Base size set to 10px so 1rem = 10px, making it easy to scale (e.g., for mobile) by dividing pixel values by 10. */
+}
+
 body { /* contains font family information for the entire web page */
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  /* font-size: 16px;*/
   line-height: 1.7;
   color: #777;
-  padding: 30px;
+  padding: 3rem;
 }
 
 .header {
@@ -37,12 +41,12 @@ body { /* contains font family information for the entire web page */
 
 .logo-box {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
 .logo {
-  height: 35px;
+  height: 3.5rem;
 }
 
 .text-box {
@@ -57,14 +61,14 @@ body { /* contains font family information for the entire web page */
   color: #fff;
   text-transform: uppercase;
   backface-visibility: hidden; /* prevents text animation from shaking */
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 }
 
 .heading-primary-main {
   display: block;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
   animation-name: moveInLeft; /* defines the animation name, see @keyframes for animation details */
   animation-duration: 1s; /* sets the duration of the animation */
   animation-timing-function: ease-out;  /* makes the animation start faster and then slow down */
@@ -80,9 +84,9 @@ body { /* contains font family information for the entire web page */
 
 .heading-primary-sub {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
+  letter-spacing: 1.75rem;
   animation-name: moveInRight; /* sets animation name */
   animation: moveInRight 1s ease-out; /* combines animation properties into one line */
 }
@@ -92,11 +96,11 @@ body { /* contains font family information for the entire web page */
 @keyframes moveInLeft { /* defines CSS animation for moving text in from the left */
   0% { /* starts with text fully off-screen to the left */
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
   }
 
   80% {
-    transform: translateX(10px); /* overshoots slightly to the right */
+    transform: translateX(1rem); /* overshoots slightly to the right */
   }
 
   100% { /* finishes with text fully visible and in position */ 
@@ -110,11 +114,11 @@ body { /* contains font family information for the entire web page */
 @keyframes moveInRight { /* defines CSS animation for moving text in from the right */
   0% { /* starts with text fully off-screen to the right */
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
 
   80% {
-    transform: translateX(-10px); /* overshoots slightly to the left */
+    transform: translateX(-1rem); /* overshoots slightly to the left */
   }
 
   100% { /* finishes with text fully visible and in position */
@@ -127,7 +131,7 @@ body { /* contains font family information for the entire web page */
 @keyframes moveInBottom { /* defines CSS animation for moving the button up */
   0% { /* starts with the button fully transparent and positioned below */
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(3rem);
   }
 
   100% { /* finishes with the button fully visible and in position */
@@ -140,21 +144,22 @@ body { /* contains font family information for the entire web page */
 .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
   display: inline-block;
-  border-radius: 100px; /* rounds the edges of the button */
+  border-radius: 10rem; /* rounds the edges of the button */
   transition: all .2s; /* enables smooth transformations */
   position: relative;
+  font-size: 1.6rem;
 }
 
 .btn:hover {
   transform: translateY(-3px); /* shifts the button slightly upwards on hover */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, .2); /* adds a shadow with specified x, y, blur, and color */
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2); /* adds a shadow with specified x, y, blur, and color */
 }
 
 .btn:active {
   transform: translateY(-1px); /* shifts the button slightly downwards on click */
-  box-shadow: 0 5px 10px rgba(0, 0, 0, .2); /* reduces the shadow intensity on click */
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2); /* reduces the shadow intensity on click */
 }
 
 .btn-white {
@@ -167,7 +172,7 @@ body { /* contains font family information for the entire web page */
   display: inline-block;
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
   position: absolute;
   top: 0;
   left: 0;
