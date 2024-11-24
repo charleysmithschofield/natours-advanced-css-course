@@ -14,7 +14,7 @@ Dark green: #28b485
 }
 
 html {
-  font-size: 10px; /* Base size set to 10px so 1rem = 10px, making it easy to scale (e.g., for mobile) by dividing pixel values by 10. */
+  font-size: 62.5%; /* Set font size to 62.5% of the default 16px, so 1rem equals 10px. This simplifies rem calculations and avoids the bad practice of fixed px values, which limit user control over font size for accessibility. */
 }
 
 body { /* contains font family information for the entire web page */
