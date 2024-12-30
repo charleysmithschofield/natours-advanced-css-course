@@ -4,6 +4,7 @@ $color-primary-dark: #28b485;
 
 $color-grey-dark: #775;
 $color-white: #fff;
+$color-black: #000;
 
 *,
 *::after,
@@ -14,10 +15,12 @@ $color-white: #fff;
 }
 
 html {
-  font-size: 62.5%; /* Set font size to 62.5% of the default 16px, so 1rem equals 10px. This simplifies rem calculations and avoids the bad practice of fixed px values, which limit user control over font size for accessibility. */
+  font-size: 62.5%;
+  /* Set font size to 62.5% of the default 16px, so 1rem equals 10px. This simplifies rem calculations and avoids the bad practice of fixed px values, which limit user control over font size for accessibility. */
 }
 
-body { /* contains font family information for the entire web page */
+body {
+  /* contains font family information for the entire web page */
   font-family: "Lato", sans-serif;
   font-weight: 400;
   /* font-size: 16px;*/
@@ -29,83 +32,101 @@ body { /* contains font family information for the entire web page */
 }
 
 .header {
-  height: 95vh; /* occupies 95% of the viewport height */
-  background-image: linear-gradient( /* applies a color gradient on top of the background image */
-    to right bottom,
-    rgba($color-primary-light, 0.8),
-    rgba($color-primary-dark, 0.8)),
+  height: 95vh;
+  /* occupies 95% of the viewport height */
+  background-image: linear-gradient(
+      /* applies a color gradient on top of the background image */
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)),
     url(../img/hero.jpg);
   background-size: cover;
   background-position: top;
   position: relative;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* creates a polygon-shaped background */
-}
 
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem;
-}
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* creates a polygon-shaped background */
 
-.header__logo {
-  height: 3.5rem;
-}
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
 
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* shifts the text box into the center */
-  text-align: center;
+  &__logo {
+    height: 3.5rem;
+  }
+
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* shifts the text box into the center */
+    text-align: center;
+  }
 }
 
 .heading-primary {
   color: $color-white;
   text-transform: uppercase;
-  backface-visibility: hidden; /* prevents text animation from shaking */
+  backface-visibility: hidden;
+  /* prevents text animation from shaking */
   margin-bottom: 6rem;
-}
 
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  animation-name: moveInLeft; /* defines the animation name, see @keyframes for animation details */
-  animation-duration: 1s; /* sets the duration of the animation */
-  animation-timing-function: ease-out;  /* makes the animation start faster and then slow down */
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    /* defines the animation name, see @keyframes for animation details */
+    animation-duration: 1s;
+    /* sets the duration of the animation */
+    animation-timing-function: ease-out;
+    /* makes the animation start faster and then slow down */
+
+    /* 
+    Other Helpful Animation Properties:
+      animation-iteration-count: 3;  --> repeats the animation multiple times
+      animation-delay: 3s;           --> delays the animation start
   
-  /* 
-  Other Helpful Animation Properties:
-    animation-iteration-count: 3;  --> repeats the animation multiple times
-    animation-delay: 3s;           --> delays the animation start
+      helpful reference: https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function 
+    */
+  }
 
-    helpful reference: https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function 
-  */
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation-name: moveInRight;
+    /* sets animation name */
+    animation: moveInRight 1s ease-out;
+    /* combines animation properties into one line */
+  }
 }
 
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-  animation-name: moveInRight; /* sets animation name */
-  animation: moveInRight 1s ease-out; /* combines animation properties into one line */
-}
+
 
 
 /* Text Animation for "OUTDOORS" Header */
-@keyframes moveInLeft { /* defines CSS animation for moving text in from the left */
-  0% { /* starts with text fully off-screen to the left */
+@keyframes moveInLeft {
+
+  /* defines CSS animation for moving text in from the left */
+  0% {
+    /* starts with text fully off-screen to the left */
     opacity: 0;
     transform: translateX(-10rem);
   }
 
   80% {
-    transform: translateX(1rem); /* overshoots slightly to the right */
+    transform: translateX(1rem);
+    /* overshoots slightly to the right */
   }
 
-  100% { /* finishes with text fully visible and in position */ 
+  100% {
+    /* finishes with text fully visible and in position */
     opacity: 1;
     transform: translate(0);
   }
@@ -113,85 +134,109 @@ body { /* contains font family information for the entire web page */
 
 
 /* Text Animation for: "IS WHERE LIFE HAPPENS" Header */
-@keyframes moveInRight { /* defines CSS animation for moving text in from the right */
-  0% { /* starts with text fully off-screen to the right */
+@keyframes moveInRight {
+
+  /* defines CSS animation for moving text in from the right */
+  0% {
+    /* starts with text fully off-screen to the right */
     opacity: 0;
     transform: translateX(10rem);
   }
 
   80% {
-    transform: translateX(-1rem); /* overshoots slightly to the left */
+    transform: translateX(-1rem);
+    /* overshoots slightly to the left */
   }
 
-  100% { /* finishes with text fully visible and in position */
+  100% {
+    /* finishes with text fully visible and in position */
     opacity: 1;
     transform: translate(0);
   }
 }
 
 /* Text Animation for "Discover our tours" button */
-@keyframes moveInBottom { /* defines CSS animation for moving the button up */
-  0% { /* starts with the button fully transparent and positioned below */
+@keyframes moveInBottom {
+
+  /* defines CSS animation for moving the button up */
+  0% {
+    /* starts with the button fully transparent and positioned below */
     opacity: 0;
     transform: translateY(3rem);
   }
 
-  100% { /* finishes with the button fully visible and in position */
+  100% {
+    /* finishes with the button fully visible and in position */
     opacity: 1;
     transform: translate(0);
   }
 }
 
-.btn:link,
-.btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  display: inline-block;
-  border-radius: 10rem; /* rounds the edges of the button */
-  transition: all .2s; /* enables smooth transformations */
-  position: relative;
-  font-size: 1.6rem;
-}
+.btn {
 
-.btn:hover {
-  transform: translateY(-3px); /* shifts the button slightly upwards on hover */
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2); /* adds a shadow with specified x, y, blur, and color */
-}
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    /* rounds the edges of the button */
+    transition: all .2s;
+    /* enables smooth transformations */
+    position: relative;
+    font-size: 1.6rem;
+  }
 
-.btn:active {
-  transform: translateY(-1px); /* shifts the button slightly downwards on click */
-  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2); /* reduces the shadow intensity on click */
-}
+  &:hover {
+    transform: translateY(-3px);
+    /* shifts the button slightly upwards on hover */
+    box-shadow: 0 1rem 2rem rgba($color-black, .2);
+    /* adds a shadow with specified x, y, blur, and color */
 
-.btn--white {
-  background-color: $color-white;
-  color: $color-grey-dark;
-}
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      /* enlarges the pseudo-element on hover */
+      opacity: 0;
+      /* fades the pseudo-element out */
+    }
+  }
 
-.btn::after { /* adds a pseudo-element for hover animation */
-  content: "";
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  border-radius: 10rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1; /* places the pseudo-element behind the button */
-  transition: all .4s; 
-}
+  &:active {
+    transform: translateY(-1px);
+    /* shifts the button slightly downwards on click */
+    box-shadow: 0 .5rem 1rem rgba($color-black, .2);
+    /* reduces the shadow intensity on click */
+  }
 
-.btn--white::after { 
-  background-color: $color-white;
-}
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
 
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6); /* enlarges the pseudo-element on hover */
-  opacity: 0; /* fades the pseudo-element out */
-}
+    &::after {
+      background-color: $color-white;
+    }
+  }
 
-.btn--animated {
-  animation: moveInBottom .5s ease-out .75s; /* animation title, duration, timing function and delay */
-  animation-fill-mode: backwards; /* automatically applies the initial animation state before the animation starts */
+  &::after {
+    /* adds a pseudo-element for hover animation */
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /* places the pseudo-element behind the button */
+    transition: all .4s;
+  }
+
+  &--animated {
+    animation: moveInBottom .5s ease-out .75s;
+    /* animation title, duration, timing function and delay */
+    animation-fill-mode: backwards;
+    /* automatically applies the initial animation state before the animation starts */
+  }
 }
