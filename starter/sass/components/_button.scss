@@ -1,0 +1,68 @@
+.btn {
+
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    /* rounds the edges of the button */
+    transition: all .2s;
+    /* enables smooth transformations */
+    position: relative;
+    font-size: 1.6rem;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    /* shifts the button slightly upwards on hover */
+    box-shadow: 0 1rem 2rem rgba($color-black, .2);
+    /* adds a shadow with specified x, y, blur, and color */
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      /* enlarges the pseudo-element on hover */
+      opacity: 0;
+      /* fades the pseudo-element out */
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    /* shifts the button slightly downwards on click */
+    box-shadow: 0 .5rem 1rem rgba($color-black, .2);
+    /* reduces the shadow intensity on click */
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &::after {
+    /* adds a pseudo-element for hover animation */
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /* places the pseudo-element behind the button */
+    transition: all .4s;
+  }
+
+  &--animated {
+    animation: moveInBottom .5s ease-out .75s;
+    /* animation title, duration, timing function and delay */
+    animation-fill-mode: backwards;
+    /* automatically applies the initial animation state before the animation starts */
+  }
+}

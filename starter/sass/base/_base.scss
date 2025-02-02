@@ -1,0 +1,17 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  // This defines what 1rem is
+  font-size: 62.5%;
+  /* Set font size to 62.5% of the default 16px, so 1rem equals 10px. This simplifies rem calculations and avoids the bad practice of fixed px values, which limit user control over font size for accessibility. */
+}
+
+body {
+  box-sizing: border-box;
+}

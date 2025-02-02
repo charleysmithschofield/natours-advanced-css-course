@@ -1,0 +1,61 @@
+/* Text Animation for "OUTDOORS" Header */
+@keyframes moveInLeft {
+
+  /* defines CSS animation for moving text in from the left */
+  0% {
+    /* starts with text fully off-screen to the left */
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+
+  80% {
+    transform: translateX(1rem);
+    /* overshoots slightly to the right */
+  }
+
+  100% {
+    /* finishes with text fully visible and in position */
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+
+/* Text Animation for: "IS WHERE LIFE HAPPENS" Header */
+@keyframes moveInRight {
+
+  /* defines CSS animation for moving text in from the right */
+  0% {
+    /* starts with text fully off-screen to the right */
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+
+  80% {
+    transform: translateX(-1rem);
+    /* overshoots slightly to the left */
+  }
+
+  100% {
+    /* finishes with text fully visible and in position */
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+/* Text Animation for "Discover our tours" button */
+@keyframes moveInBottom {
+
+  /* defines CSS animation for moving the button up */
+  0% {
+    /* starts with the button fully transparent and positioned below */
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  100% {
+    /* finishes with the button fully visible and in position */
+    opacity: 1;
+    transform: translate(0);
+  }
+}

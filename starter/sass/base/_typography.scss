@@ -1,0 +1,49 @@
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  /* prevents text animation from shaking */
+  margin-bottom: 6rem;
+
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    /* defines the animation name, see @keyframes for animation details */
+    animation-duration: 1s;
+    /* sets the duration of the animation */
+    animation-timing-function: ease-out;
+    /* makes the animation start faster and then slow down */
+
+    /* 
+    Other Helpful Animation Properties:
+      animation-iteration-count: 3;  --> repeats the animation multiple times
+      animation-delay: 3s;           --> delays the animation start
+  
+      helpful reference: https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function 
+    */
+  }
+
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation-name: moveInRight;
+    /* sets animation name */
+    animation: moveInRight 1s ease-out;
+    /* combines animation properties into one line */
+  }
+}
+
+body {
+  /* contains font family information for the entire web page */
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px;*/
+  line-height: 1.7;
+  color: $color-grey-dark;
+  padding: 3rem;
+}
